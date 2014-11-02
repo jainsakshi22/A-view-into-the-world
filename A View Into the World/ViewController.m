@@ -30,14 +30,22 @@
     [self.view addSubview:myView];
     
     UIButton *anotherButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    anotherButton.frame = CGRectMake(40, 40, 200, 100);
+    CGRect myButtonFrame = CGRectMake(40,20,200,100);
+    anotherButton.frame = myButtonFrame;
+//    anotherButton.frame = CGRectMake(40, 40, 200, 100);   //another method to define in single line
     anotherButton.backgroundColor = [UIColor greenColor];
     [anotherButton setTitle:@"Press me...Please!!!" forState:UIControlStateNormal];
     [self.view addSubview:anotherButton];
     
     [myView removeFromSuperview];
     
-   
+    [anotherButton addTarget:self action: @selector(didPressButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+-(void)didPressButton : (UIButton *)button
+{
+    NSLog(@"Button pressed ");
 }
 
 - (void)didReceiveMemoryWarning {
